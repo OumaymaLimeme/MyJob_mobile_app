@@ -1,5 +1,4 @@
 package com.example.myjob
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,6 +8,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myjob.ui.theme.MyJobTheme
 
@@ -29,8 +29,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-            text = "Hello $name!",
-            modifier = modifier
+        text = "Hello $name!",
+        modifier = modifier,
+        onTextLayout = { result: TextLayoutResult ->
+            // Handle the TextLayoutResult if needed
+        }
     )
 }
 
@@ -38,6 +41,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     MyJobTheme {
-        Greeting("Android")
+        Greeting("My name is Oumayma Limeme ")
     }
 }

@@ -1,6 +1,5 @@
-import org.jetbrains.exposed.dao.IntIdTable
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.ResultRow
-import org.jetbrains.exposed.sql.Table
 
 data class User(
         val id: Int,
