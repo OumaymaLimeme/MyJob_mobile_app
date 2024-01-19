@@ -1,5 +1,6 @@
 package com.example.myjob
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -49,9 +50,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.fragment.app.FragmentActivity
 import coil.compose.AsyncImage
 import androidx.navigation.NavController
-
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 @Composable
 fun LoginPage(navController: NavController) {
 
@@ -125,6 +129,7 @@ fun LoginPage(navController: NavController) {
                     nameButton = "Sign In with Google ",
                     roundedCornerShape = RoundedCornerShape(topStart = 30.dp,bottomEnd = 30.dp),
                     imageUrl = "https://w7.pngwing.com/pngs/937/156/png-transparent-google-logo-google-search-google-account-redes-search-engine-optimization-text-service-thumbnail.png"
+
                 )
                 Spacer(modifier = Modifier.padding(10.dp))
                 androidx.compose.material3.TextButton(onClick = {
@@ -187,6 +192,8 @@ private fun GoogleButton(
             .padding(start = 32.dp, end = 32.dp),
         onClick = {
             //your code
+           // signInWithGoogle(context as FragmentActivity)
+
         },
 
         contentPadding = PaddingValues(),
