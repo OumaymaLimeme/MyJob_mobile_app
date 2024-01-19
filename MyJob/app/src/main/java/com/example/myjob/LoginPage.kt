@@ -161,8 +161,17 @@ fun LoginPage(navController: NavController) {
                     )
                 }
                 Spacer(modifier = Modifier.padding(20.dp))
+                Text(
+                    text = "Made By JCI Enfidha 2024",
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
 
+                        .fillMaxWidth(),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color(0xFF0978f6),
+                )
             }
+
 
 
         }
@@ -233,6 +242,7 @@ private fun GoogleButton(
                 )
 
             }
+
         }
     }
 }
