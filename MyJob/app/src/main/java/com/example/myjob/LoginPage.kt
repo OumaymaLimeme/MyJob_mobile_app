@@ -1,6 +1,6 @@
 package com.example.myjob
 
-import android.content.Intent
+import android.provider.Settings.Global.getString
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -50,12 +49,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.fragment.app.FragmentActivity
 import coil.compose.AsyncImage
 import androidx.navigation.NavController
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.identity.BeginSignInRequest
+
 @Composable
 fun LoginPage(navController: NavController) {
 
@@ -78,7 +75,7 @@ fun LoginPage(navController: NavController) {
 
         {
             Image(
-               painter = painterResource(id = R.drawable.ic_launcher_foreground),
+               painter = painterResource(id = R.drawable.logo),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
@@ -102,16 +99,15 @@ fun LoginPage(navController: NavController) {
                     modifier = Modifier
                         .padding(top = 130.dp)
                         .fillMaxWidth(),
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.primary,
-
+                    style = MaterialTheme.typography.displayMedium,
+                    color = Color(0xFF0978f6),
                     )
                 Spacer(modifier = Modifier.padding(3.dp))
                 SimpleOutlinedTextFieldSample()
                 Spacer(modifier = Modifier.padding(3.dp))
                 SimpleOutlinedPasswordTextField()
 
-                val gradientColor = listOf(Color(0xFF484BF1), Color(0xFF673AB7))
+                val gradientColor = listOf(Color( 0xFF0978f6), Color(0xff00b0ff))
                 val cornerRadius = 16.dp
                 Spacer(modifier = Modifier.padding(10.dp))
 
@@ -143,7 +139,9 @@ fun LoginPage(navController: NavController) {
                     androidx.compose.material3.Text(
                         text = "Create An Account",
                         letterSpacing = 1.sp,
-                        style = MaterialTheme.typography.labelLarge
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.Black,
+
                     )
                 }
 
@@ -161,11 +159,21 @@ fun LoginPage(navController: NavController) {
                         text = "Reset Password",
                         letterSpacing = 1.sp,
                         style = MaterialTheme.typography.labelLarge,
+                        color = Color.Black,
                     )
                 }
                 Spacer(modifier = Modifier.padding(20.dp))
+                Text(
+                    text = "Made By JCI Enfidha 2024",
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
 
+                        .fillMaxWidth(),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color(0xFF0978f6),
+                )
             }
+
 
 
         }
@@ -191,8 +199,7 @@ private fun GoogleButton(
             .fillMaxWidth()
             .padding(start = 32.dp, end = 32.dp),
         onClick = {
-            //your code
-           // signInWithGoogle(context as FragmentActivity)
+
 
         },
 
@@ -236,6 +243,7 @@ private fun GoogleButton(
                 )
 
             }
+
         }
     }
 }
@@ -298,7 +306,7 @@ fun SimpleOutlinedPasswordTextField() {
         shape = RoundedCornerShape(topEnd =12.dp, bottomStart =12.dp),
         label = {
             Text("Enter Password",
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.labelMedium,
             ) },
         visualTransformation =
@@ -309,8 +317,8 @@ fun SimpleOutlinedPasswordTextField() {
             keyboardType = KeyboardType.Password
         ),
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = MaterialTheme.colorScheme.primary,
-            unfocusedBorderColor = MaterialTheme.colorScheme.primary),
+            focusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer),
         trailingIcon = {
             IconButton(onClick = { passwordHidden = !passwordHidden }) {
                // val visibilityIcon =
@@ -341,7 +349,7 @@ fun SimpleOutlinedTextFieldSample(){
         shape = RoundedCornerShape(topEnd =12.dp, bottomStart =12.dp),
         label = {
             Text("Name or Email Address",
-                color = MaterialTheme.colorScheme.primary,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
                 style = MaterialTheme.typography.labelMedium,
             ) },
         placeholder = { Text(text = "Name or Email Address") },
@@ -350,8 +358,8 @@ fun SimpleOutlinedTextFieldSample(){
             keyboardType = KeyboardType.Email
         ),
         colors = TextFieldDefaults.outlinedTextFieldColors(
-            focusedBorderColor = MaterialTheme.colorScheme.primary,
-            unfocusedBorderColor = MaterialTheme.colorScheme.primary),
+            focusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer),
         singleLine = true,
         modifier = Modifier.fillMaxWidth(0.8f),
         keyboardActions = KeyboardActions(
