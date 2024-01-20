@@ -136,13 +136,15 @@ fun LoginPage(navController: NavController) {
                     }
 
                 }) {
-                    androidx.compose.material3.Text(
-                        text = "Create An Account",
-                        letterSpacing = 1.sp,
-                        style = MaterialTheme.typography.labelLarge,
-                        color = Color.Black,
+                    androidx.compose
+                        .material3
+                        .Text(
+                            text = "Create An Account",
+                            letterSpacing = 1.sp,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = Color.Black,
 
-                    )
+                            )
                 }
 
 

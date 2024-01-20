@@ -1,14 +1,15 @@
+import com.example.myjob.Role
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.ResultRow
-
-data class User(
-        val id: Int,
-        val firstname: String,
-        val email: String,
-        val lastname: String,
-        val age: Int,
-        val password: String,
-        val phone: Int
+open class User(
+    var id: Int,
+    val firstname: String,
+    val email: String,
+    val lastname: String,
+    val age: Int,
+    val password: String,
+    val phone: Int,
+    val role:Role
 )
 
 object Users : IntIdTable() {
@@ -18,17 +19,7 @@ object Users : IntIdTable() {
     val age = integer("age")
     val password = varchar("password", 50)
     val phone = integer("phone")
+    val role = enumerationByName("role", 50, Role::class)
 
-    // Map the table columns to the User entity
-    fun toUser(row: ResultRow): User {
-        return User(
-                row[Users.id].value,
-                row[Users.firstname],
-                row[Users.email],
-                row[Users.lastname],
-                row[Users.age],
-                row[Users.password],
-                row[Users.phone]
-        )
-    }
 }
+
