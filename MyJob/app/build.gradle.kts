@@ -47,6 +47,11 @@ android {
 }
 
 dependencies {
+    implementation ("org.slf4j:slf4j-api:1.7.32")
+    implementation ("ch.qos.logback:logback-classic:1.2.3")
+
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil:2.5.0")
     implementation("org.postgresql:postgresql:42.3.1")
     implementation ("org.jetbrains.exposed:exposed-core:0.37.1")
     implementation ("org.jetbrains.exposed:exposed-dao:0.37.1")
@@ -57,10 +62,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation ("androidx.navigation:navigation-compose:2.7.6")
     runtimeOnly("androidx.compose.material:material-icons-extended:1.6.0-rc01")
-    implementation("org.jetbrains.exposed:exposed-core:0.37.1")
-    implementation("org.jetbrains.exposed:exposed-dao:0.37.1")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.37.1")
-    implementation("org.jetbrains.exposed:exposed-datetime:0.37.1")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
@@ -72,7 +73,6 @@ dependencies {
     implementation("androidx.compose.ui:ui:1.5.4")
     implementation("androidx.compose.ui:ui-graphics:1.5.4")
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
-    implementation("androidx.compose.material3:material3-android:1.2.0-beta02")
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation("androidx.compose.ui:ui-android:1.5.4")

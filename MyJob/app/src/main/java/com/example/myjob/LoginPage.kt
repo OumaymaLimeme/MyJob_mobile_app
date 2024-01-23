@@ -1,6 +1,5 @@
 package com.example.myjob
 
-import android.provider.Settings.Global.getString
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +21,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -51,8 +51,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import androidx.navigation.NavController
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
-
 @Composable
 fun LoginPage(navController: NavController) {
 
@@ -75,7 +73,7 @@ fun LoginPage(navController: NavController) {
 
         {
             Image(
-               painter = painterResource(id = R.drawable.logo),
+                painter = painterResource(id = R.drawable.logo),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
@@ -101,7 +99,7 @@ fun LoginPage(navController: NavController) {
                         .fillMaxWidth(),
                     style = MaterialTheme.typography.displayMedium,
                     color = Color(0xFF0978f6),
-                    )
+                )
                 Spacer(modifier = Modifier.padding(3.dp))
                 SimpleOutlinedTextFieldSample()
                 Spacer(modifier = Modifier.padding(3.dp))
@@ -201,7 +199,8 @@ private fun GoogleButton(
             .fillMaxWidth()
             .padding(start = 32.dp, end = 32.dp),
         onClick = {
-
+            //your code
+            // signInWithGoogle(context as FragmentActivity)
 
         },
 
@@ -229,7 +228,7 @@ private fun GoogleButton(
                 horizontalArrangement = Arrangement.Center
             ){
                 imageUrl?.let{
-                    url->
+                        url->
                     AsyncImage(
                         model = url,
                         contentDescription = "Image description",
@@ -323,8 +322,8 @@ fun SimpleOutlinedPasswordTextField() {
             unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer),
         trailingIcon = {
             IconButton(onClick = { passwordHidden = !passwordHidden }) {
-               // val visibilityIcon =
-                 //   if (passwordHidden) Icons.Default.Visibility else Icons.Default.VisibilityOff
+                // val visibilityIcon =
+                //   if (passwordHidden) Icons.Default.Visibility else Icons.Default.VisibilityOff
                 val description = if (passwordHidden) "Show password" else "Hide password"
                 //Icon(imageVector = visibilityIcon, contentDescription = description)
             }
@@ -373,5 +372,3 @@ fun SimpleOutlinedTextFieldSample(){
 
     )
 }
-
-
