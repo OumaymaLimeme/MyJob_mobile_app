@@ -73,7 +73,7 @@ fun LoginPage(navController: NavController) {
 
         {
             Image(
-               painter = painterResource(id = R.drawable.logo),
+                painter = painterResource(id = R.drawable.logo),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
@@ -99,7 +99,7 @@ fun LoginPage(navController: NavController) {
                         .fillMaxWidth(),
                     style = MaterialTheme.typography.displayMedium,
                     color = Color(0xFF0978f6),
-                    )
+                )
                 Spacer(modifier = Modifier.padding(3.dp))
                 SimpleOutlinedTextFieldSample()
                 Spacer(modifier = Modifier.padding(3.dp))
@@ -200,7 +200,7 @@ private fun GoogleButton(
             .padding(start = 32.dp, end = 32.dp),
         onClick = {
             //your code
-           // signInWithGoogle(context as FragmentActivity)
+            // signInWithGoogle(context as FragmentActivity)
 
         },
 
@@ -228,7 +228,7 @@ private fun GoogleButton(
                 horizontalArrangement = Arrangement.Center
             ){
                 imageUrl?.let{
-                    url->
+                        url->
                     AsyncImage(
                         model = url,
                         contentDescription = "Image description",
@@ -322,8 +322,8 @@ fun SimpleOutlinedPasswordTextField() {
             unfocusedBorderColor = MaterialTheme.colorScheme.onSecondaryContainer),
         trailingIcon = {
             IconButton(onClick = { passwordHidden = !passwordHidden }) {
-               // val visibilityIcon =
-                 //   if (passwordHidden) Icons.Default.Visibility else Icons.Default.VisibilityOff
+                // val visibilityIcon =
+                //   if (passwordHidden) Icons.Default.Visibility else Icons.Default.VisibilityOff
                 val description = if (passwordHidden) "Show password" else "Hide password"
                 //Icon(imageVector = visibilityIcon, contentDescription = description)
             }
@@ -372,5 +372,3 @@ fun SimpleOutlinedTextFieldSample(){
 
     )
 }
-
-
